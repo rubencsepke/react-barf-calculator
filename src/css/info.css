@@ -1,0 +1,7 @@
+@import "_variables.css";
+
+.info {
+  background: var(--light-blue-1);
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+}

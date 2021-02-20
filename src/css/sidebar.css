@@ -1,0 +1,111 @@
+@import "_variables.css";
+
+.show-list {
+  display: block !important;
+  z-index: 9999;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar {
+  background: var(--light-blue-2);
+  padding: 40px;
+  color: var(--dark-blue);
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+.sidebar .title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 3rem;
+}
+
+.input-block {
+  margin-top: 1.5rem;
+}
+
+.input-block label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.select-container {
+  position: relative;
+}
+
+.select-container .selected-item {
+  padding: 16px;
+  background: var(--white);
+  border-radius: 8px;
+}
+
+.select-container .select-options {
+  display: none;
+  list-style-type: none;
+  padding: 16px;
+  background: var(--white);
+  border-radius: 8px;
+  position: absolute;
+  top: 105%;
+  left: 0;
+  right: 0;
+}
+
+.select-container .select-option {
+  border-bottom: 1px solid #e2e2e2;
+  cursor: pointer;
+}
+
+.select-container .select-option:last-child {
+  border: 0;
+}
+
+.select-container .select-option div {
+  padding: 8px;
+  margin: 4px 0;
+}
+
+.select-container .select-option:first-child div {
+  margin-top: 0;
+}
+
+.select-container .select-option:last-child div {
+  border: 0;
+  margin-bottom: 0;
+}
+
+.select-container .select-option:hover div {
+  background: #e9e9e9;
+  border-radius: 5px;
+}
+
+.select-container .select-option span {
+  display: inline-block;
+  width: 55px;
+}
+
+.input-field {
+  display: flex;
+  justify-content: space-between;
+  background: var(--white);
+  padding: 16px;
+  border-radius: 5px;
+}
+
+.input-field input {
+  border: 0;
+  outline: 0;
+}
+
+.submit {
+  border: 0;
+  background: var(--dark-blue);
+  padding: 16px;
+  border-radius: 5px;
+  color: var(--white);
+  width: 100%;
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 2rem;
+  cursor: pointer;
+}

@@ -1,0 +1,7 @@
+.container {
+  width: 1200px;
+  height: 700px;
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  border-radius: 20px;
+}
