@@ -33,7 +33,7 @@ const Options = ({optionType, options, handleSelected}) => {
   }
   if(optionType === 'multi') {
     const data = options.map(option => (
-      <li className="select-option" onClick={() => handleSelected(option.name)} key={option.id}>
+      <li className="select-option" onClick={() => handleSelected(option.name, option.percentage)} key={option.id}>
         <div>
           <span>{option.percentage}%</span> {option.name}
         </div>

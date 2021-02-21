@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import Sidebar from './components/Sidebar';
 import Info from './components/Info';
 import Input from './components/form/Input'
@@ -6,34 +6,19 @@ import Select from './components/form/Select'
 
 import './css/app.css';
 
+import petTypes from './data/petTypes.json';
+import dailyActivities from './data/dailyActivities.json';
+import requirements from './data/requirements.json';
+
 const App = () => {
 
-  const [petTypes, setPetTypes] = useState([]);
   const [selectedPetType, setSelectedPetType] = useState('Please Choose');
   const [weight, setWeight] = useState();
-  const [dailyActivity, setDailyActivity] = useState([]);
   const [selectedDailyActivity, setSelectedDailyActivity] = useState('Please Choose');
-  const [selectedDailyActivityId, setSelectedDailyActivityId] = useState(0);
+  const [selectedDailyActivityPercentage, setSelectedDailyActivityPercentage] = useState(0);
+  const [grandTotal, setGrandTotal] = useState(0);
+  const [showResults, setShowResults] = useState(false);
 
-  const fetchPetTypes = () => {
-    setPetTypes([
-      {id: 1, name: 'Puppy'},
-      {id: 2, name: 'Dog'},
-      {id: 3, name: 'Kitten'},
-      {id: 4, name: 'Cat'}
-    ]);
-  }
-
-  const fetchDailyActivities = () => {
-    setDailyActivity([
-      {id: 1, percentage: 1.5, name: 'Sedentary'},
-      {id: 2, percentage: 2, name: 'Low Activity'},
-      {id: 3, percentage: 2.5, name: 'Moderate Activity'},
-      {id: 4, percentage: 3, name: 'Active, Normal Intensity'},
-      {id: 5, percentage: 3.5, name: 'Active, Moderate Intensity'},
-      {id: 6, percentage: 4, name: 'Active, High Intensity'},
-    ]);
-  }
   const handleSelectedPetType = (name) => {
     setSelectedPetType(name);
   }
@@ -42,31 +27,29 @@ const App = () => {
     setWeight(e.target.value)
   }
 
-  const handleSelectedDailyActivity = (name) => {
+  const handleSelectedDailyActivity = (name, percentage) => {
     setSelectedDailyActivity(name);
+    setSelectedDailyActivityPercentage(percentage)
   }
 
-  const calculate = () => {
-
+  const calculate = (e) => {
+    e.preventDefault();
+    setGrandTotal(((selectedDailyActivityPercentage/100) * weight) * 1000);
+    setShowResults(true);
   }
-
-  useEffect(() => {
-    fetchPetTypes();
-    fetchDailyActivities();
-  }, []);
 
   return (
     <div className="container">
       <Sidebar>
         <h1 className="title">Barf Calculator</h1>
-        <form action="">
+        <form onSubmit={calculate}>
           <Select title="Pet type" data={petTypes} handleSelected={handleSelectedPetType} type="single" selectedValue={selectedPetType} />
           <Input title="Pet weight" weight={weight} handleWeight={handleWeight} />
-          <Select title="Daily Activity" data={dailyActivity} handleSelected={handleSelectedDailyActivity} type="multi" selectedValue={selectedDailyActivity} />
-          <button type="submit" className="submit" onClick={() => calculate()}>Calculate raw feeding</button>
+          <Select title="Daily Activity" data={dailyActivities} handleSelected={handleSelectedDailyActivity} type="multi" selectedValue={selectedDailyActivity} />
+          <button type="submit" className="submit">Calculate raw feeding</button>
         </form>
       </Sidebar>
-      <Info />
+      <Info showResults={showResults} grandTotal={grandTotal} requirements={requirements} />
     </div>
   );
 }

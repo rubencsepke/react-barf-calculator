@@ -1,0 +1,8 @@
+[
+  {"id": 1, "percentage": 1.5, "name": "Sedentar"},
+  {"id": 2, "percentage": 2, "name": "Low Activit"},
+  {"id": 3, "percentage": 2.5, "name": "Moderate Activit"},
+  {"id": 4, "percentage": 3, "name": "Active, Normal Intensit"},
+  {"id": 5, "percentage": 3.5, "name": "Active, Moderate Intensit"},
+  {"id": 6, "percentage": 4, "name": "Active, High Intensit"}
+]

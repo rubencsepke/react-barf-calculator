@@ -1,7 +1,41 @@
 @import "_variables.css";
 
 .info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--light-blue-1);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.info .info-content {
+  display: grid;
+  grid-template-columns: repeat(2, 300px);
+  grid-gap: 16px;
+}
+
+.info .info-content .card {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--white);
+  padding: 16px;
+  border-radius: 8px;
+}
+
+.info .info-content .card .card-title {
+  display: inline-block;
+  width: 40%;
+  font-size: 0.7rem;
+  letter-spacing: 0.7px;
+  color: #4c4c4c;
+  text-transform: uppercase;
+  line-height: 1.5;
+}
+
+.info .info-content .card .gram {
+  display: inline-block;
+  font-size: 2rem;
 }
