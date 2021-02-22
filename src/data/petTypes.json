@@ -1,6 +1,4 @@
 [
   {"id": 1, "name": "Puppy"},
-  {"id": 2, "name": "Dog"},
-  {"id": 3, "name": "Kitten"},
-  {"id": 4, "name": "Cat"}
+  {"id": 2, "name": "Dog"}
 ]
