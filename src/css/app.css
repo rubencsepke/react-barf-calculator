@@ -1,7 +1,8 @@
 .container {
-  width: 1200px;
-  height: 700px;
+  width: 90vw;
+  max-width: 1200px;
+  height: 90vh;
   display: grid;
-  grid-template-columns: 380px 1fr;
+  grid-template-columns: 420px 1fr;
   border-radius: 20px;
 }

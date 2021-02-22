@@ -7,9 +7,11 @@
 }
 
 .sidebar {
-  background: var(--light-blue-2);
+  background: var(--dark-blue) url(../images/sidebar_background.png) no-repeat
+    bottom center;
+  background-size: 75% auto;
   padding: 40px;
-  color: var(--dark-blue);
+  color: var(--white);
   border-top-left-radius: 20px;
   border-bottom-left-radius: 20px;
 }
@@ -18,10 +20,22 @@
   text-align: center;
   font-size: 2rem;
   margin-bottom: 3rem;
+  color: var(--light-pink);
+}
+
+.sidebar form {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 16px;
 }
 
 .input-block {
-  margin-top: 1.5rem;
+  margin-top: 1rem;
+}
+
+.input-block:nth-child(3) {
+  grid-column: 1/3;
+  grid-row: 2;
 }
 
 .input-block label {
@@ -31,6 +45,7 @@
 
 .select-container {
   position: relative;
+  color: var(--dark-blue);
 }
 
 .select-container .selected-item {
@@ -89,23 +104,35 @@
   justify-content: space-between;
   background: var(--white);
   padding: 16px;
-  border-radius: 5px;
+  border-radius: 8px;
+  color: var(--dark-blue);
 }
 
 .input-field input {
   border: 0;
   outline: 0;
+  font-size: 16px;
+  width: 50px;
 }
 
 .submit {
+  grid-column: 1/3;
+  grid-row: 3;
   border: 0;
-  background: var(--dark-blue);
+  background: var(--light-pink);
   padding: 16px;
-  border-radius: 5px;
-  color: var(--white);
+  border-radius: 8px;
+  color: var(--dark-blue);
   width: 100%;
   font-weight: 600;
-  font-size: 16px;
-  margin-top: 2rem;
+  font-size: 1.1rem;
+  margin-top: 1rem;
   cursor: pointer;
+  outline: 0;
+  box-shadow: 0;
+  transition: box-shadow 0.3s;
+}
+
+.submit:hover {
+  box-shadow: 0 0 0 4px rgba(251, 216, 216, 0.5);
 }

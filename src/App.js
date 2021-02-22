@@ -21,15 +21,18 @@ const App = () => {
 
   const handleSelectedPetType = (name) => {
     setSelectedPetType(name);
+    setShowResults(false);
   }
 
   const handleWeight = (e) => {
-    setWeight(e.target.value)
+    setWeight(e.target.value);
+    setShowResults(false);
   }
 
-  const handleSelectedDailyActivity = (name, percentage) => {
+  const handleSelectedDailyActivity = (name, percentage='') => {
     setSelectedDailyActivity(name);
     setSelectedDailyActivityPercentage(percentage)
+    setShowResults(false);
   }
 
   const calculate = (e) => {
@@ -49,7 +52,7 @@ const App = () => {
           <button type="submit" className="submit">Calculate raw feeding</button>
         </form>
       </Sidebar>
-      <Info showResults={showResults} grandTotal={grandTotal} requirements={requirements} />
+      <Info showResults={showResults} grandTotal={grandTotal} requirements={requirements} selectedPetType={selectedPetType} />
     </div>
   );
 }

@@ -4,15 +4,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--light-blue-1);
+  background: var(--light-pink);
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+  padding: 40px;
 }
 
 .info .info-content {
   display: grid;
   grid-template-columns: repeat(2, 300px);
   grid-gap: 16px;
+  color: var(--dark-blue);
 }
 
 .info .info-content .card {
@@ -23,6 +25,7 @@
   background: var(--white);
   padding: 16px;
   border-radius: 8px;
+  animation: show 0.3s;
 }
 
 .info .info-content .card .card-title {
@@ -30,7 +33,7 @@
   width: 40%;
   font-size: 0.7rem;
   letter-spacing: 0.7px;
-  color: #4c4c4c;
+  color: var(--dark-blue);
   text-transform: uppercase;
   line-height: 1.5;
 }
@@ -38,4 +41,13 @@
 .info .info-content .card .gram {
   display: inline-block;
   font-size: 2rem;
+}
+
+@keyframes show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }

@@ -1,23 +1,26 @@
 import React from 'react';
 import '../css/info.css';
 
-const Info = ({showResults, grandTotal, requirements}) => {
+const Info = ({showResults, grandTotal, requirements, selectedPetType}) => {
   return (
     <div className="info">
-      <div className="info-content">
-        <div className="card">
-          <h6 className="card-title">Total grand</h6> 
-          <span className="gram">{grandTotal}g</span>
+      {showResults && (
+        <div className="info-content">
+          <div className="card">
+            <h6 className="card-title">Total grand</h6> 
+            <span className="gram">{grandTotal}g</span>
+          </div>
+          {requirements.map(requirement => {
+            const {dog, puppy} = requirement.percentage;
+            return (
+              <div className="card">
+                <h6 className="card-title">{requirement.name}</h6> 
+                <Gram grandTotal={grandTotal} percentage={selectedPetType === "Dog" ? dog : puppy} />
+              </div>
+            )
+          })}
         </div>
-        {showResults && (
-          requirements.map(requirement => (
-            <div className="card">
-              <h6 className="card-title">{requirement.name}</h6> 
-              <Gram grandTotal={grandTotal} percentage={requirement.percentage} />
-            </div>
-          ))
-        )}
-      </div>
+      )}
     </div>
   )
 }

@@ -1,9 +1,44 @@
 [
-  {"id": 1, "name": "Muscle Meat Requirements", "percentage": 70},
-  {"id": 2, "name": "Edible Bone Requirements", "percentage": 10},
-  {"id": 3, "name": "Liver Requirements", "percentage": 5},
-  {"id": 4, "name": "Other Organ Requirements", "percentage": 5},
-  {"id": 5, "name": "Vegetable Requirements", "percentage": 7},
-  {"id": 6, "name": "Seeds/Nuts Requirements", "percentage": 2},
-  {"id": 7, "name": "Fruit Requirements", "percentage": 1}
+  {"id": 1, "name": "Muscle Meat Requirements", "percentage":
+    {
+      "dog": 70,
+      "puppy": 58
+    }
+  },
+  {"id": 2, "name": "Edible Bone Requirements", "percentage":
+    {
+      "dog": 10,
+      "puppy": 17
+    }
+  },
+  {"id": 3, "name": "Liver Requirements", "percentage":
+    {
+      "dog": 5,
+      "puppy": 7
+    }
+  },
+  {"id": 4, "name": "Other Organ Requirements", "percentage":
+    {
+      "dog": 5,
+      "puppy": 7
+    }
+  },
+  {"id": 5, "name": "Vegetable Requirements", "percentage":
+    {
+      "dog": 7,
+      "puppy": 7
+    }
+  },
+  {"id": 6, "name": "Seeds/Nuts Requirements", "percentage":
+    {
+      "dog": 2,
+      "puppy": 3
+    }
+  },
+  {"id": 7, "name": "Fruit Requirements", "percentage":
+    {
+      "dog": 1,
+      "puppy": 1
+    }
+  }
 ]

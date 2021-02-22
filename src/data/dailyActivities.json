@@ -1,8 +1,8 @@
 [
-  {"id": 1, "percentage": 1.5, "name": "Sedentar"},
-  {"id": 2, "percentage": 2, "name": "Low Activit"},
-  {"id": 3, "percentage": 2.5, "name": "Moderate Activit"},
-  {"id": 4, "percentage": 3, "name": "Active, Normal Intensit"},
-  {"id": 5, "percentage": 3.5, "name": "Active, Moderate Intensit"},
-  {"id": 6, "percentage": 4, "name": "Active, High Intensit"}
+  {"id": 1, "percentage": 1.5, "name": "Sedentary"},
+  {"id": 2, "percentage": 2, "name": "Low Activity"},
+  {"id": 3, "percentage": 2.5, "name": "Moderate Activity"},
+  {"id": 4, "percentage": 3, "name": "Active, Normal Intensity"},
+  {"id": 5, "percentage": 3.5, "name": "Active, Moderate Intensity"},
+  {"id": 6, "percentage": 4, "name": "Active, High Intensity"}
 ]

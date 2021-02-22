@@ -35,7 +35,7 @@ const Options = ({optionType, options, handleSelected}) => {
     const data = options.map(option => (
       <li className="select-option" onClick={() => handleSelected(option.name, option.percentage)} key={option.id}>
         <div>
-          <span>{option.percentage}%</span> {option.name}
+          {option.name}
         </div>
       </li>
     ));
