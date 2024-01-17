@@ -1,12 +1,13 @@
 import React, {useState} from 'react';
 import { DailyActivities } from '../../model/daily-activities.model';
 import { PetTypes } from '../../model/pet-types.model';
+import { SelectTypeKeys } from '../../model/select-type';
 
 interface SelectProps {
   title: string,
   handleSelected: (arg0: string, arg1?: number) => void,
   selectedValue: string,
-  type: string,
+  type: SelectTypeKeys,
   data: PetTypes[] | DailyActivities[],
 }
 
@@ -33,22 +34,21 @@ const Select = ({title, handleSelected, selectedValue, type, data}: SelectProps)
 }
 
 interface OptionsProps {
-  optionType: string,
+  optionType: SelectTypeKeys,
   options: PetTypes[] | DailyActivities[],
   handleSelected: (arg0: string, arg1?: number) => any
 }
 
 const Options = ({optionType, options, handleSelected}: OptionsProps) => {
-  if(optionType === 'single') { 
-    const data = options.map(option => (
+  let data: JSX.Element[] = [];
+  if(optionType === "single") {
+    data = options.map(option => (
       <li className="select-option" onClick={() => handleSelected(option.name)} key={option.id}>
         <div>{option.name}</div>
       </li>
-    ));
-    return data;
-  }
-  if(optionType === 'multi') {
-    const data = options.map(option => (
+    ))
+  } else if (optionType === "multi") {
+    data = options.map(option => (
       'percentage' in option ? (
         <li className="select-option" onClick={() => handleSelected(option.name, option.percentage)} key={option.id}>
           <div>
@@ -62,9 +62,9 @@ const Options = ({optionType, options, handleSelected}: OptionsProps) => {
           </div>
         </li>
       )
-    ));
-    return data;
+    ))
   }
+  return <>data</>;
 }
 
 export default Select;
