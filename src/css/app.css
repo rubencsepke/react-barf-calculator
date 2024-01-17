@@ -6,3 +6,11 @@
   grid-template-columns: 420px 1fr;
   border-radius: 20px;
 }
+
+@media screen and (max-width: 1200px) {
+  .container {
+    max-width: 700px;
+    min-width: 100%;
+    grid-template-columns: auto;
+  }
+}

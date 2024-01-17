@@ -150,3 +150,12 @@
 .submit:hover {
   box-shadow: 0 0 0 4px rgba(251, 216, 216, 0.5);
 }
+
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    background: var(--dark-blue);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    border-bottom-left-radius: 0;
+  }
+}
