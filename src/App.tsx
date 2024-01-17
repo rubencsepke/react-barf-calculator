@@ -13,32 +13,34 @@ import requirements from './data/requirements.json';
 const App = () => {
 
   const [selectedPetType, setSelectedPetType] = useState('Please Choose');
-  const [weight, setWeight] = useState();
+  const [weight, setWeight] = useState<number>(0);
   const [selectedDailyActivity, setSelectedDailyActivity] = useState('Please Choose');
   const [selectedDailyActivityPercentage, setSelectedDailyActivityPercentage] = useState(0);
   const [grandTotal, setGrandTotal] = useState(0);
   const [showResults, setShowResults] = useState(false);
 
-  const handleSelectedPetType = (name) => {
+  const handleSelectedPetType = (name: string) => {
     setSelectedPetType(name);
     setShowResults(false);
   }
 
-  const handleWeight = (e) => {
-    setWeight(e.target.value);
+  const handleWeight = (e: any) => {
+    setWeight(e.target?.value);
     setShowResults(false);
   }
 
-  const handleSelectedDailyActivity = (name, percentage='') => {
+  const handleSelectedDailyActivity = (name: string, percentage?: number) => {
     setSelectedDailyActivity(name);
-    setSelectedDailyActivityPercentage(percentage)
+    percentage && setSelectedDailyActivityPercentage(percentage)
     setShowResults(false);
   }
 
-  const calculate = (e) => {
-    e.preventDefault();
-    setGrandTotal(((selectedDailyActivityPercentage/100) * weight) * 1000);
-    setShowResults(true);
+  const calculate = (e: any) => {
+    if(weight) {
+      e.preventDefault();
+      setGrandTotal(((selectedDailyActivityPercentage/100) * weight) * 1000);
+      setShowResults(true);
+    }
   }
 
   return (

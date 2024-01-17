@@ -1,6 +1,12 @@
 import React from 'react';
 
-const Input = ({title, handleWeight, weight}) => {
+interface InputProps {
+  title: string,
+  handleWeight: (arg0: any) => void,
+  weight: number
+}
+
+const Input = ({title, handleWeight, weight}: InputProps) => {
 
   return (
     <div className="input-block">

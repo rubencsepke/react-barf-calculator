@@ -1,6 +1,16 @@
 import React, {useState} from 'react';
+import { DailyActivities } from '../../model/daily-activities.model';
+import { PetTypes } from '../../model/pet-types.model';
 
-const Select = ({title, handleSelected, selectedValue, type, data}) => {
+interface SelectProps {
+  title: string,
+  handleSelected: (arg0: string, arg1?: number) => void,
+  selectedValue: string,
+  type: string,
+  data: PetTypes[] | DailyActivities[],
+}
+
+const Select = ({title, handleSelected, selectedValue, type, data}: SelectProps) => {
 
   const [activeClass, setActiveClass] = useState('');
 
@@ -22,7 +32,13 @@ const Select = ({title, handleSelected, selectedValue, type, data}) => {
   )
 }
 
-const Options = ({optionType, options, handleSelected}) => {
+interface OptionsProps {
+  optionType: string,
+  options: PetTypes[] | DailyActivities[],
+  handleSelected: (arg0: string, arg1?: number) => any
+}
+
+const Options = ({optionType, options, handleSelected}: OptionsProps) => {
   if(optionType === 'single') { 
     const data = options.map(option => (
       <li className="select-option" onClick={() => handleSelected(option.name)} key={option.id}>
@@ -33,11 +49,19 @@ const Options = ({optionType, options, handleSelected}) => {
   }
   if(optionType === 'multi') {
     const data = options.map(option => (
-      <li className="select-option" onClick={() => handleSelected(option.name, option.percentage)} key={option.id}>
-        <div>
-          {option.name}
-        </div>
-      </li>
+      'percentage' in option ? (
+        <li className="select-option" onClick={() => handleSelected(option.name, option.percentage)} key={option.id}>
+          <div>
+            {option.name}
+          </div>
+        </li>
+      ) : (
+        <li className="select-option" onClick={() => handleSelected(option.name)} key={option.id}>
+          <div>
+            {option.name}
+          </div>
+        </li>
+      )
     ));
     return data;
   }

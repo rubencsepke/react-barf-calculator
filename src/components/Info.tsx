@@ -1,7 +1,20 @@
 import React from 'react';
 import '../css/info.css';
+import { Requirements } from '../model/requirements.model';
 
-const Info = ({showResults, grandTotal, requirements, selectedPetType}) => {
+interface InfoProps {
+  showResults: boolean,
+  grandTotal: number,
+  requirements: Requirements[],
+  selectedPetType: string
+}
+
+interface GramProps {
+  grandTotal: number,
+  percentage: number
+}
+
+const Info = ({showResults, grandTotal, requirements, selectedPetType}: InfoProps) => {
   return (
     <div className="info">
       {showResults && (
@@ -25,7 +38,7 @@ const Info = ({showResults, grandTotal, requirements, selectedPetType}) => {
   )
 }
 
-const Gram = ({grandTotal, percentage}) => {
+const Gram = ({grandTotal, percentage}: GramProps) => {
   const value = (grandTotal / 100) * percentage;
   return (
     <span className="gram">{Math.round(value*100) / 100}g</span>
