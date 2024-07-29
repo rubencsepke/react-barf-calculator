@@ -64,7 +64,7 @@ const Options = ({optionType, options, handleSelected}: OptionsProps) => {
       )
     ))
   }
-  return <>data</>;
+  return <>{data}</>;
 }
 
 export default Select;
